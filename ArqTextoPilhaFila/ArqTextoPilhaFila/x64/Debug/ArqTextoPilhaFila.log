@@ -1,5 +1,6 @@
 ﻿  ArqTextoPilhaFila.cpp
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(356,17): warning C4101: 'chr2': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(586,26): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(590,11): warning C4778: 'printf': cadeia de formato não terminada '%'
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(357,17): warning C4101: 'chr2': variável local não referenciada
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(587,26): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(591,11): warning C4778: 'printf': cadeia de formato não terminada '%'
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(915,22): warning C4101: 'paux': variável local não referenciada
   ArqTextoPilhaFila.vcxproj -> C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\x64\Debug\ArqTextoPilhaFila.exe

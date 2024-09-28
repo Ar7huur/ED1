@@ -8,6 +8,7 @@
 #define TF 7
 #define TAML 100
 #define TL 7
+#define tl 3
 #include"TADPilha.h"
 #include "TADPilhaPadraoChar.h"
 
@@ -672,7 +673,7 @@ void Formatador(const char nomeArq[100]) {
 			i++;
 			chr = fgetc(PtrArq);
 		}
-		
+
 	}
 	fclose(PtrArq);
 	fclose(PtrN);
@@ -681,8 +682,9 @@ void Formatador(const char nomeArq[100]) {
 }
 #pragma endregion
 
+#pragma region Pilha padrão
 void pilha01() {
-	TpPilha p1, p2,paux;
+	TpPilha p1, p2, paux;
 	int num = 0;
 	inicializa(p1);
 	inicializa(p2);
@@ -715,7 +717,7 @@ void pilha01() {
 
 void pilha02() {
 	TpPilha p1, p2;
-	int num = 0, elemRemove=0;
+	int num = 0, elemRemove = 0;
 	inicializa(p1);
 	inicializa(p2);
 
@@ -737,7 +739,7 @@ void pilha02() {
 		if (num != elemRemove)
 			insere(p1, num);
 	}
-	printf("\nO elemento [%d] foi removido com sucesso, a pilha então ficou assim:\n",elemRemove);
+	printf("\nO elemento [%d] foi removido com sucesso, a pilha então ficou assim:\n", elemRemove);
 	exibe(p1);
 	_getch();
 
@@ -758,12 +760,12 @@ void pilha03() {
 		aux = exp[i];
 
 		if (isdigit(aux)) {
-			
+
 			insere(p1, aux - '0');
 		}
 		else if (aux == '*' || aux == '+' || aux == '-') {
-			num = retira(p1); 
-			num2 = retira(p1); 
+			num = retira(p1);
+			num2 = retira(p1);
 
 			if (aux == '*') {
 				resultado = num * num2;
@@ -775,7 +777,7 @@ void pilha03() {
 				resultado = num2 - num;
 			}
 
-			insere(p1, resultado); 
+			insere(p1, resultado);
 		}
 	}
 
@@ -787,7 +789,7 @@ void pilha03() {
 
 void pilha05() {
 
-	TpPilha p1,p2;
+	TpPilha p1, p2;
 	int num[TL];
 	inicializa(p1);
 	inicializa(p2);
@@ -825,8 +827,8 @@ void pilha06(const char nomeArq[100]) {
 
 		chr = fgetc(PtrArq);
 		while (!feof(PtrArq)) {
-			if(chr != 32)
-				insere(p1, chr-'0');
+			if (chr != 32)
+				insere(p1, chr - '0');
 
 			chr = fgetc(PtrArq);
 		}
@@ -843,7 +845,7 @@ void pilha06(const char nomeArq[100]) {
 void pilha07() {
 
 	TpPilhaPadraoChar p1, p2;
-	char frase[100],aux;
+	char frase[100], aux;
 	int cont = 0, cont2 = 0;
 
 	inicializaPilhaTipoChar(p1);
@@ -875,8 +877,8 @@ void pilha07() {
 
 }
 
-void pilha09(){
-	TpPilhaPadraoChar p1,p2;
+void pilha09() {
+	TpPilhaPadraoChar p1, p2;
 	char frase[100], chr;;
 	inicializaPilhaTipoChar(p1);
 	inicializaPilhaTipoChar(p2);
@@ -900,7 +902,7 @@ void pilha09(){
 				printf("%c", retiraPilhaTipoChar(p2));
 			printf(" ");
 		}
-		
+
 	}
 
 	_getch();
@@ -908,6 +910,101 @@ void pilha09(){
 
 
 }
+
+void Paletes(const char nomeArq[100]) {
+
+	TpPilha pa, pb, pc, paux;
+
+	inicializa(pa);//7t
+	inicializa(pb);//5t
+	inicializa(pc);//3t
+
+	char chr;
+	FILE* PtrArq = fopen(nomeArq, "r");
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo dos paletes");
+	else {
+		chr = fgetc(PtrArq);
+		while (!feof(PtrArq)) {
+
+			switch (chr) {
+
+			case '3':
+				if (!cheia(pc.topo))
+					insere(pc, chr - '0');
+				break;
+
+			case '5':
+				if (!cheia(pb.topo))
+					insere(pb, chr - '0');
+				break;
+			case '7':
+				if (!cheia(pa.topo))
+					insere(pa, chr - '0');
+				break;
+
+			}
+			chr = fgetc(PtrArq);
+		}
+	}
+
+	while (!cheia(pa.topo) && !vazia(pb.topo))
+		insere(pa, retira(pb));
+	while (!cheia(pa.topo) && !vazia(pc.topo))
+		insere(pa, retira(pc));
+
+	exibe(pa);
+	_getch();
+
+
+}
+
+void PaletesComVetor(const char nomeArq[100]) {
+
+	TpPilha p1, p2;
+	int num[tl], i = 0, aux = 0;
+	inicializa(p1);
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		chr = fgetc(PtrArq);
+
+		while (!feof(PtrArq)) {
+			if (chr != 32) {
+				num[i] = chr - '0';
+				i++;
+			}
+
+			chr = fgetc(PtrArq);
+		}
+
+		for (int i = 0; i < tl - 1; i++) {
+			for (int j = 0; j < tl - 1 - i; j++) {
+				if (num[j] < num[j + 1]) {
+					aux = num[j];
+					num[j] = num[j + 1];
+					num[j + 1] = aux;
+				}
+			}
+		}
+		printf("\n\n\nO vetor ordenado do maior para o menor ");//faz assim pq ao inserir na pilha, insere o 7 primeiro e o 3 se torna meu topo
+		for (int i = 0; i < tl; i++) {
+			printf(" %d ", num[i]);
+			insere(p1, num[i]);
+		}
+
+		exibe(p1);
+		fclose(PtrArq);
+		_getch();
+	}
+
+}
+#pragma endregion
 
 
 
@@ -917,6 +1014,7 @@ char Menu(void)
 	system("cls");
 	printf("### MENU PARA OS Exercicios de Pilha padrao e caso 1 e 2 ###\n");
 	printf("**** MENU DE OPCOES ****");
+	printf("\n\n***** ARQUIVO TEXTO *****");
 	printf("\n[A] Ex1 - Arquivo Texto");
 	printf("\n[B] Ex1 - B: Arquivo Texto com string");
 	printf("\n[C] Ex2 - Arquivo texto");
@@ -937,7 +1035,7 @@ char Menu(void)
 	printf("\n[R] Ex23 - Arquivo texto");
 	printf("\n[S] Formatador - Ex. Prova");
 	printf("\n[T] Exibir arquivos criados pelos exercicios de arq. texto sem precisar abrir ele manualmente.");
-	printf("\nIniciando os exercicios de pilha padrao:");
+	printf("\n\n***** PILHA PADRAO *****");
 	printf("\n[U] Ex1 - Pilha com inteiros");
 	printf("\n[V] Ex2 - Pilha com inteiros");
 	printf("\n[W] Ex3 - Pilha com inteiros");
@@ -945,9 +1043,9 @@ char Menu(void)
 	printf("\n[Y] Ex6 - Pilha com inteiros");
 	printf("\n[Z] Ex7 - Pilha com char");
 	printf("\n[0] Ex9 - pilha com char");
-	printf("Iniciando os exercicios de pilha caso 1:");
-	printf("\n[1] ");
-	printf("\n[2] ");
+	printf("\n[1] Exercicio paletes - Prova ED1");
+	printf("\n[2] Exercicio paletes - Prova ED1 (com vetor e ordenação de bolha)");
+	printf("\n\n***** PILHA CASO 1 *****");
 	printf("\n[3] ");
 	printf("\n[4] ");
 	printf("\n[5] ");
@@ -1031,6 +1129,12 @@ int main() {
 		case 'Z':pilha07();
 			break;
 		case '0':pilha09();
+			break;
+		case '1':Paletes("Paletes.txt");
+			break;
+		case '2':PaletesComVetor("Paletes.txt");
+			break;
+		case '3':
 			break;
 
 		}
