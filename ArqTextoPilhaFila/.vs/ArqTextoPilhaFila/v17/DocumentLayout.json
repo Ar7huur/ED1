@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\",
+  "WorkspaceRootPath": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilhaPadraoChar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArqTextoPilhaFila\\TADPilhaPadraoChar.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\TADPILHA.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\TADPILHA.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,25 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TADPilhaPadraoChar.h",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilhaPadraoChar.h",
-              "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TADPilhaPadraoChar.h",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilhaPadraoChar.h",
-              "RelativeToolTip": "ArqTextoPilhaFila\\TADPilhaPadraoChar.h",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACUAAAAAAAAA",
+              "Title": "TADPilha.h",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilha.h",
+              "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TADPilha.h",
+              "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilha.h",
+              "RelativeToolTip": "ArqTextoPilhaFila\\TADPilha.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-28T03:46:32.758Z",
+              "WhenOpened": "2024-09-28T04:47:11.953Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ArqTextoPilhaFila.cpp",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
               "RelativeDocumentMoniker": "ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\CompiladoEstudao para prova de ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
+              "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
               "RelativeToolTip": "ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
-              "ViewState": "AQIAAJkDAAAAAAAAAAAswGwDAAAOAAAA",
+              "ViewState": "AQIAANUDAAAAAAAAAAAswOMDAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-28T02:28:14.604Z",
               "EditorCaption": ""
