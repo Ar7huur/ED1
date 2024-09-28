@@ -1,4 +1,4 @@
-#define MAXPILHA 10
+#define MAXPILHA 50
 
 struct TpPilhaPadraoChar
 {

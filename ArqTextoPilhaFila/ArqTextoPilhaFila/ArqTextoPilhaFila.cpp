@@ -876,6 +876,36 @@ void pilha07() {
 }
 
 void pilha09(){
+	TpPilhaPadraoChar p1,p2;
+	char frase[100], chr;;
+	inicializaPilhaTipoChar(p1);
+	inicializaPilhaTipoChar(p2);
+
+
+	printf("\nForneca a frase: ");
+	fflush(stdin);
+	gets_s(frase);
+
+	for (int i = 0; i < strlen(frase); i++)
+		inserePilhaTipoChar(p1, frase[i]);
+
+	while (!vazia(p1.TOPO)) {
+
+		chr = retiraPilhaTipoChar(p1);
+
+		if (chr != 32)
+			inserePilhaTipoChar(p2, chr);
+		if (chr == 32 || vaziaPilhaTipoChar(p1.TOPO)) {
+			while (!vaziaPilhaTipoChar(p2.TOPO))
+				printf("%c", retiraPilhaTipoChar(p2));
+			printf(" ");
+		}
+		
+	}
+
+	_getch();
+
+
 
 }
 
@@ -1000,7 +1030,8 @@ int main() {
 			break;
 		case 'Z':pilha07();
 			break;
-
+		case '0':pilha09();
+			break;
 
 		}
 
