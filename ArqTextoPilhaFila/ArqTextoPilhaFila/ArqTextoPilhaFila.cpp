@@ -8,9 +8,11 @@
 #define TF 7
 #define TAML 100
 #define TL 7
-#define tl 3
+#define tl 3 //paletes
+#define PMA 5 //exercicio 1 de pilha multipla caso 1
 #include"TADPilha.h"
 #include "TADPilhaPadraoChar.h"
+#include "PilhaMultiplaCaso1.h"
 
 #pragma region Arquivo Texto
 void fecharArq(FILE* NomeArq1, FILE* NomeArq2) {
@@ -1006,6 +1008,203 @@ void PaletesComVetor(const char nomeArq[100]) {
 }
 #pragma endregion
 
+#pragma region Pilha múltipla CASO 1
+void pilhaCASO1Ex1() {
+
+	TpPilhaM pm;
+	char chr, aux, vet[PMA];
+	inicializarPMA(pm);
+
+	for (int i = 0; i <= 4; i++) {
+		printf("\nForneca os valores da primeira pilha:");
+		scanf("%s", &chr);
+		inserirPMA(pm, chr, 1);
+	}
+
+	for (int i = 0; i < MAXP / 2; i++) {
+		printf("\nForneca os valores da segunda pilha:");
+		scanf("%s", &chr);
+		inserirPMA(pm, chr, 0);
+	}
+
+	for (int i = 0; i < PMA; i++) {
+		aux = retirarPMA(pm, 0);
+		vet[i] = aux;
+	}
+
+	//bubble sort para ordenar o vetor e deixar filé pra inserir essa merda corretamente pq não pensei em outra forma
+	//28 do 09 de 2023+1, às 03:45, conclui essa merda tirando a ideia do bubble sort da alma, meu deus
+	for (int i = 0; i < PMA - 1; i++) {
+		for (int j = 0; j < PMA - 1; j++) {
+			if (vet[j] > vet[j + 1]) {
+				aux = vet[j];
+				vet[j] = vet[j + 1];
+				vet[j + 1] = aux;
+			}
+		}
+	}
+
+	for (int i = 0; i < PMA; i++)
+		inserirPMA(pm, vet[i], 1);
+
+
+	exibirPMA(pm, 1);
+	_getch();
+
+
+
+
+}
+
+void pilhaCASO1Ex2() {
+	TpPilhaM pm;
+
+	inicializarPMA(pm);
+
+	char chr, elemRemove, aux, vet[MAXPILHAPM1];
+
+	for (int i = 0; i < MAXPILHAPM1; i++) {
+		printf("\nForneca os elementos da pilha: ");
+		scanf("%s", &chr);
+		inserirPMA(pm, chr, 1);
+	}
+
+	printf("\n\nQual elemento deseja remover ?:	");
+	scanf("%s", &elemRemove);
+
+	while (!vazia(pm.TOPO1)) {
+
+		aux = retirarPMA(pm, 1);
+
+		if (aux != elemRemove)
+			inserirPMA(pm, aux, 0);
+	}
+
+
+	while (!vaziaPMA(pm.TOPO1, 0))
+		inserirPMA(pm, retirarPMA(pm, 0), 1);
+
+
+
+	exibirPMA(pm, 1);
+	_getch();
+
+
+}
+
+void PaletesCaso1(const char nomeArq[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+	int vet[tl], aux = 0, i = 0;
+	TpPilhaM pm;
+
+	inicializarPMA(pm);
+
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		chr = fgetc(PtrArq);
+
+		while (!feof(PtrArq)) {
+			if (chr != 32) {
+				vet[i] = chr - '0';
+				i++;
+			}
+			chr = fgetc(PtrArq);
+		}
+
+
+		for (int i = 0; i <= tl - 1; i++) {
+			for (int j = 0; j <= tl - 1; j++) {
+				if (vet[j] < vet[j + 1]) {
+					aux = vet[j];
+					vet[j] = vet[j + 1];
+					vet[j + 1] = aux;
+				}
+			}
+		}
+
+		for (int i = 0; i < tl; i++)
+			inserirPMA(pm, vet[i] + '0', 1);
+
+	}
+
+	fclose(PtrArq);
+	exibirPMA(pm, 1);
+	_getch();
+
+
+
+}
+
+void pilhaCaso1Ex6(const char nomeArq[100]) {
+	TpPilhaM pm;
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+
+	inicializarPMA(pm);
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		FILE* PtrN = fopen("pilhaCaso1Ex6.txt", "w");
+		chr = fgetc(PtrArq);
+
+		while (!feof(PtrArq)) {
+
+			if (chr != 32)
+				inserirPMA(pm, chr, 1);
+			chr = fgetc(PtrArq);
+
+
+		}
+
+
+		while (!vaziaPMA(pm.TOPO1, 1))
+			fprintf(PtrN, " %c ", retirarPMA(pm, 1));
+
+		fecharArq(PtrN, PtrArq);
+
+	}
+
+	_getch();
+
+
+}
+
+void pilhaCaso1Ex5() {
+
+	TpPilhaM pm;
+	char chr[TL];
+	inicializarPMA(pm);
+
+
+	for (int i = 0; i < TL; i++) {
+		printf("\nForneca os dados do vetor: ");
+		fflush(stdin);
+		scanf("%s", &chr[i]);
+	}
+
+
+	printf("\nVETOR: ");
+	for (int i = 0; i < TL; i++) {
+		printf(" %c ", chr[i]);
+		inserirPMA(pm, chr[i], 0);
+	}
+
+	printf("\nVETOR INVERTIDO: ");
+	exibirPMASemBarraN(pm, 0);
+
+	_getch();
+
+}
+#pragma endregion
+
+
 
 
 char Menu(void)
@@ -1027,7 +1226,7 @@ char Menu(void)
 	printf("\n[J] Ex10 - Arquivo texto");
 	printf("\n[K] Ex11 - Arquivo texto");
 	printf("\n[L] Ex12 - Arquivo texto");
-	printf("\n[M] Ex13 - Arquivo texto");//bagulho merda, sou quenga de string, não sei trabalhar direito como isso nao
+	printf("\n[M] Ex13 - Arquivo texto");//bagulho merda, sou quenga de string, não sei trabalhar direito como isso nao, só no csharp msm
 	printf("\n[N] Ex14 - Arquivo texto");
 	printf("\n[O] Ex15 - Arquivo texto");
 	printf("\n[P] Ex16 - Arquivo texto");
@@ -1042,15 +1241,15 @@ char Menu(void)
 	printf("\n[X] Ex5 - Pilha com inteiros");
 	printf("\n[Y] Ex6 - Pilha com inteiros");
 	printf("\n[Z] Ex7 - Pilha com char");
-	printf("\n[0] Ex9 - pilha com char");
+	printf("\n[0] Ex9 - Pilha com char");
 	printf("\n[1] Exercicio paletes - Prova ED1");
 	printf("\n[2] Exercicio paletes - Prova ED1 (com vetor e ordenação de bolha)");
 	printf("\n\n***** PILHA CASO 1 *****");
-	printf("\n[3] ");
-	printf("\n[4] ");
-	printf("\n[5] ");
-	printf("\n[6] ");
-	printf("\n[7] ");
+	printf("\n[3] Ex1 - Pilha com char - CASO 1");
+	printf("\n[4] Ex2 - Pilha com char - CASO 1");
+	printf("\n[5] Exercicio Paletes - CASO 1 - Feito com int");
+	printf("\n[6] Ex06 - Pilha com int - CASO 1");
+	printf("\n[7] Ex05 - Pilha com int - CASO 1");
 	printf("\n[8] ");
 	printf("\n[9] ");
 	printf("\n[/] ");
@@ -1134,9 +1333,16 @@ int main() {
 			break;
 		case '2':PaletesComVetor("Paletes.txt");
 			break;
-		case '3':
+		case '3':pilhaCASO1Ex1();
 			break;
-
+		case '4':pilhaCASO1Ex2();
+			break;
+		case '5':PaletesCaso1("Paletes.txt");
+			break;
+		case '6':pilhaCaso1Ex6("arqEx6Pilha.txt");
+			break;
+		case '7':pilhaCaso1Ex5();
+			break;
 		}
 
 	} while (opcao != 27);

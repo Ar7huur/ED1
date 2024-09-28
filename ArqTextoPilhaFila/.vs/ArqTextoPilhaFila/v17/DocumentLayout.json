@@ -9,6 +9,13 @@
     {
       "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\TADPILHA.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\TADPILHA.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\PILHAMULTIPLACASO1.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\PILHAMULTIPLACASO1.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\PROGRAM FILES (X86)\\WINDOWS KITS\\10\\INCLUDE\\10.0.22621.0\\UCRT\\STDIO.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +25,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "stdio.h",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "ViewState": "AQIAAHgCAAAAAAAAAAAswIUCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-28T07:08:56.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PilhaMultiplaCaso1.h",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\PilhaMultiplaCaso1.h",
+              "RelativeDocumentMoniker": "ArqTextoPilhaFila\\PilhaMultiplaCaso1.h",
+              "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\PilhaMultiplaCaso1.h",
+              "RelativeToolTip": "ArqTextoPilhaFila\\PilhaMultiplaCaso1.h",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAmwAgAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-28T05:51:57.29Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -28,7 +61,7 @@
               "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TADPilha.h",
               "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilha.h",
               "RelativeToolTip": "ArqTextoPilhaFila\\TADPilha.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-28T04:47:11.953Z",
               "EditorCaption": ""
@@ -41,7 +74,7 @@
               "RelativeDocumentMoniker": "ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
               "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
               "RelativeToolTip": "ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
-              "ViewState": "AQIAANUDAAAAAAAAAAAswOMDAAAVAAAA",
+              "ViewState": "AQIAAJ4EAAAAAAAAAAAswKkEAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-28T02:28:14.604Z",
               "EditorCaption": ""
