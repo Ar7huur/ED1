@@ -827,6 +827,7 @@ void pilha06(const char nomeArq[100]) {
 		while (!feof(PtrArq)) {
 			if(chr != 32)
 				insere(p1, chr-'0');
+
 			chr = fgetc(PtrArq);
 		}
 
