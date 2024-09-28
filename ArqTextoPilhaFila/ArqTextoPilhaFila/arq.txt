@@ -1,0 +1,3 @@
+esse eh um arquivo para
+testar os exercicios
+de arquivo texto em cpp

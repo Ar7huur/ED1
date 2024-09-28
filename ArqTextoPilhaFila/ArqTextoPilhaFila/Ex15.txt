@@ -1,0 +1,3 @@
+esse eh um @rquivo p@r@
+test@r os exercicios
+de @rquivo texto em cpp

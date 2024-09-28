@@ -1,0 +1,433 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <ctype.h>
+#include <windows.h>
+#include <stdio.h>
+#define TF 7
+
+void fecharArq(FILE* NomeArq1, FILE* NomeArq2) {
+
+	fclose(NomeArq1);
+	fclose(NomeArq2);
+}
+
+void ExibirMsg() {
+	printf("\nFeito exercicio");
+	_getch();
+
+}
+
+void Ex1(const char nomeArq[100]) {
+
+	char chr;
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		chr = fgetc(PtrArq);
+		FILE* PtrN = fopen("arqN.txt", "w");
+		while (!feof(PtrArq)) {
+
+			fputc(toupper(chr), PtrN);
+			chr = fgetc(PtrArq);
+
+		}
+		fclose(PtrArq);
+		fclose(PtrN);
+	}
+	printf("\nFeito exercicio 1");
+	_getch();
+	Sleep(1000);
+}
+
+void Ex1B(const char nomeArq[100]) {
+
+	char chr[100];
+	FILE* PtrArq = fopen(nomeArq, "r");
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		FILE* PtrN = fopen("Ex1B.txt", "w");
+		fgets(chr, 100, PtrArq);
+
+		while (!feof(PtrArq)) {
+			_strupr(chr);
+			fputs(chr, PtrN);
+			fgets(chr, 100, PtrArq);
+		}
+
+		fecharArq(PtrArq, PtrN);
+	}
+	ExibirMsg();
+
+}
+
+void Ex2(const char nomeArq[100]) {
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+
+	int linha=0, esp=0, letras=0;
+
+	if(PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		chr = fgetc(PtrArq);
+		while (!feof(PtrArq)) {
+
+			if (chr == 32)
+				esp++;
+			if (chr == 10)
+				linha++;
+			if (chr != 10 && chr != 32)
+				letras++;
+			chr = fgetc(PtrArq);
+		}
+		fclose(PtrArq);
+	}
+	printf("\nHa um total de: [%d] espacos [%d] linhas e [%d] letras", esp, linha, letras);
+	ExibirMsg();
+	Sleep(1000);
+
+
+
+}
+
+void Ex3(const char nomeArq[100], const char nomeArq2[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	FILE* PtrN = fopen(nomeArq2, "r");
+
+	char chr, chr2;
+	int cont = 0, diferentes = 0;
+
+	if (PtrArq == NULL || PtrN == NULL)
+		printf("\nErro com um dos arquivos");
+	else {
+
+		chr = fgetc(PtrArq);
+		chr2 = fgetc(PtrN);
+
+		while (!feof(PtrArq) && !feof(PtrN)) {
+
+			if (chr == chr2)
+				cont++;
+			else
+				diferentes++;
+
+			chr = fgetc(PtrArq);
+			chr2 = fgetc(PtrN);
+		}
+	}
+
+	if (diferentes > 0)
+		printf("\nArquivos diferentes");
+	else
+		printf("\nArquivos iguais");
+
+	fecharArq(PtrArq, PtrN);
+	ExibirMsg();
+	Sleep(1000);
+}
+
+void Ex4(const char nomeArq[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+		FILE* PtrN = fopen("Ex4.txt", "w");
+		chr = fgetc(PtrArq);
+		fputc(toupper(chr), PtrN);
+		chr = fgetc(PtrArq);
+		while (!feof(PtrArq)) {
+
+			if (chr == 32 || chr == 10) {
+				fputc(chr, PtrN);
+				chr = fgetc(PtrArq);
+				if(chr != -1)//evita gravar o lixo no arquivo texto
+					fputc(toupper(chr), PtrN);
+			}
+			else
+				fputc(chr, PtrN);
+			chr = fgetc(PtrArq);
+
+		}
+
+		fecharArq(PtrArq, PtrN);
+		ExibirMsg();
+		Sleep(1000);
+	}
+
+
+}
+
+void Ex5() {
+
+	int numAposta[TF], codigoAposta = 0, qtdeCadastros=6,j=0;
+	char data[12];
+
+	FILE* PtrArq = fopen("Aposta.txt", "w");
+
+	while (j <2) {
+		printf("\nQual o codigo da aposta ?: ");
+		scanf("%d", &codigoAposta);
+		fprintf(PtrArq, "%d", codigoAposta);
+		fprintf(PtrArq, "\t");
+
+		printf("\nQual a data da aposta ? [dd/mm/yyyy]: ");
+		fflush(stdin);
+		scanf("%s", &data);//uso scanf pq o gets não funciona no vstudio
+		fprintf(PtrArq, "%s", data);
+		fprintf(PtrArq, "\t");
+
+		printf("\nForneca os 7 numeros apostados: ");
+
+		for (int i = 0; i < 7; i++) {
+			scanf("%d", &numAposta[i]);
+			fprintf(PtrArq, "%d\t", numAposta[i]);
+		}
+		fprintf(PtrArq, "\n");
+		j++;
+	}
+
+	fclose(PtrArq);
+}
+
+void Ex7(const char nomeArq[100]) {
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		FILE* PtrN = fopen("Ex7.txt", "w");
+		chr = fgetc(PtrArq);
+
+		while (!feof(PtrArq)) {
+
+			fputc(chr + 2, PtrN);
+
+			chr = fgetc(PtrArq);
+		}
+
+		fecharArq(PtrArq, PtrN);
+		
+	}
+	ExibirMsg();
+	Sleep(1500);
+}
+
+void Ex8(const char nomeArq[100]) {
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+
+	if (PtrArq == NULL)
+		printf("\nErro no arquivo");
+	else {
+		FILE* PtrN = fopen("Ex8Descriptografado.txt", "w");
+		chr = fgetc(PtrArq);
+		while (!feof(PtrArq)) {
+			fputc(chr - 2, PtrN);
+			chr = fgetc(PtrArq);
+		}
+		fecharArq(PtrArq, PtrN);
+	}
+	ExibirMsg();
+	Sleep(1500);
+}
+
+void Ex9(const char nomeArq[100]) {
+	FILE* PtrArq = fopen(nomeArq, "r");
+	char chr;
+	int vogs = 0;
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+		chr = fgetc(PtrArq);
+		while (!feof(PtrArq)) {
+
+			if (chr == 'A' || chr == 'a' || chr == 'E' || chr == 'e' || chr == 'I' || chr == 'i' || chr == 'O' || chr == 'o' || chr == 'U' || chr == 'u')
+				vogs++;
+			chr = fgetc(PtrArq);
+		}
+		fclose(PtrArq);
+	}
+
+	printf("\nHa um total de [%d] vogais", vogs);
+	ExibirMsg();
+	Sleep(1300);
+}
+
+void Ex10() {
+
+	FILE* PtrArq = fopen("Arq10.txt", "w");
+	int i, num=0;
+
+	for (i=0; i < 10000; i++) {
+		printf("\n%d", i);
+		fprintf(PtrArq, "%d", i);
+		fprintf(PtrArq, "\n");
+	}
+	printf("\nArthur");
+	fprintf(PtrArq, "Arthur");
+	fclose(PtrArq);
+	Sleep(5000);//apertar enter varias vezes retorna ao menu
+}
+
+void Ex11(const char nomeArq[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	int i=0;
+	char linha[100];
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		fgets(linha, 100, PtrArq);
+		
+		while (!feof(PtrArq)) {
+			printf("%d ", i);
+			printf("%s", linha);
+			i++;
+			fgets(linha, 100, PtrArq);
+
+		}
+
+		fclose(PtrArq);
+		ExibirMsg();
+		Sleep(1300);
+
+	}
+
+}
+
+
+char Menu(void)
+{
+
+	system("cls");
+	printf("### MENU PARA OS Exercicios de Pilha padrao e caso 1 e 2 ###\n");
+	printf("**** MENU DE OPCOES ****");
+	printf("\n[A] Ex1 - Arquivo Texto");
+	printf("\n[B] Ex1 - B: Arquivo Texto com string");
+	printf("\n[C] Ex2 - Arquivo texto");
+	printf("\n[D] Ex3 - Arquivo texto");
+	printf("\n[E] Ex4 - Arquivo texto");
+	printf("\n[F] Ex5 - Arquivo texto");
+	printf("\n[G] Ex7 - Arquivo texto");
+	printf("\n[H] Ex8 - Arquivo texto");
+	printf("\n[I] Ex9 - Arquivo texto");
+	printf("\n[J] Ex10 - Arquivo texto");
+	printf("\n[K] Ex11 - Arquivo texto");
+	printf("\n[L] ");
+	printf("\n[M] ");
+	printf("\n[N] ");
+	printf("\n[O] ");
+	printf("\n[P] ");
+	printf("\n[Q] ");
+	printf("\n[R] ");
+	printf("\n[S] ");
+	printf("\n[T] ");
+	printf("\n[U] ");
+	printf("\n[V] ");
+	printf("\n[W] ");
+	printf("\n[X] ");
+	printf("\n[Y] ");
+	printf("\n[Z] ");
+
+
+
+	printf("\n[ESC] Sair do Programa");
+	printf("\nOpcao: ");
+
+	_getch();
+	return toupper(_getch());
+
+
+
+}
+
+int main() {
+	char opcao;
+	do
+	{
+		opcao = Menu();
+		system("cls");
+		switch (opcao)
+		{
+
+		case 'A':
+			Ex1("arq.txt");
+			break;
+		case 'B':
+			Ex1B("arq.txt");
+			break;
+		case 'C':Ex2("arq.txt");
+			break;
+		case 'D':Ex3("arq.txt", "arq2.txt");
+			break;
+		case 'E':Ex4("arq.txt");
+			break;
+		case 'F':Ex5();
+			break;
+		case 'G':Ex7("arq.txt");
+			break;
+		case 'H':Ex8("Ex7.txt");
+			break;
+		case 'I':Ex9("arq.txt");
+			break;
+		case 'J':Ex10();
+			break;
+		case 'K':Ex11("Ex11.txt");
+			break;
+		case 'L':
+			break;
+		case 'M':
+			break;
+		case 'N':
+			break;
+		case 'O':
+			break;
+		case 'P':
+			break;
+		case 'Q':
+			break;
+		case 'R':
+			break;
+		case 'S':
+			break;
+		case 'T':
+			break;
+		case 'U':
+			break;
+		case 'V':
+			break;
+		case 'W':
+			break;
+		case 'X':
+			break;
+		case 'Y':
+			break;
+		case 'Z':
+			break;
+
+
+
+		}
+
+	} while (opcao != 27);
+	return 0;
+}
