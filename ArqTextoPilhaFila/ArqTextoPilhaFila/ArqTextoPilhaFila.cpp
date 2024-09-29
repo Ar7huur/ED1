@@ -13,6 +13,7 @@
 #include"TADPilha.h"
 #include "TADPilhaPadraoChar.h"
 #include "PilhaMultiplaCaso1.h"
+#include "TADPilhaNPilhasCaso2.h"
 
 #pragma region Arquivo Texto
 void fecharArq(FILE* NomeArq1, FILE* NomeArq2) {
@@ -22,7 +23,7 @@ void fecharArq(FILE* NomeArq1, FILE* NomeArq2) {
 }
 
 void ExibirMsg() {
-	printf("\nFeito exercicio");
+	printf("\nExercicio feito, pressione qualquer tecla de forma repetida para voltar ao menu....... :)");
 	_getch();
 
 }
@@ -1241,14 +1242,380 @@ void pilhaCaso1Ex7() {
 }
 #pragma endregion
 
+#pragma region Pilha múltipla CASO 2
+//ajustar o maxpilha caso for testar o ex 1 de PM caso 2, por que alterei o maxpilha de 10 para 100 por causa do ex 9.
+void pilhaCaso2Ex1() {
+	TpPilhaM2 pm;
+	char elem;
+	inicializarPM2(pm, 3);
+
+	for (int i = 0; i < MAXPILHACASO2/3; i++) {
+		printf("\nForneca os elementos do tipo CHAR para a pilha 1:");
+		fflush(stdin);
+		scanf("%s", &elem);
+		inserirPM2(pm, elem, 0);
+	}
+
+	exibirPM2(pm, 0);
+
+	for (int i = 0; i < MAXPILHACASO2/3; i++) {
+		printf("\nForneca os elementos do tipo CHAR para a pilha 2:");
+		fflush(stdin);
+		scanf("%s", &elem);
+		inserirPM2(pm, elem, 1);
+	}
+
+	while (!vaziaPM2(pm, 1))
+		inserirPM2(pm, retirarPM2(pm, 1), 2);
+
+	while (!vaziaPM2(pm, 2))
+		inserirPM2(pm, retirarPM2(pm, 2), 0);
+
+	exibirPM2(pm, 0);
+	_getch();
+
+	
+} 
+
+void pilhaCaso2Ex2() {
+
+	TpPilhaM2 pm;
+	char elem, elemRemove,aux;
+	inicializarPM2(pm,2);
+
+
+	for (int i = 0; i < MAXPILHACASO2; i++) {
+		printf("\nForneca os elementos da pilha: ");
+		fflush(stdin);
+		scanf("%s", &elem);
+		inserirPM2(pm, elem, 0);
+	}
+
+	printf("\nForneca o elemento que deseja remover: ");
+	fflush(stdin);
+	scanf("%s", &elemRemove);
+
+	while (!vaziaPM2(pm, 0)) {
+
+		aux = retirarPM2(pm, 0);
+
+		if (aux != elemRemove)
+			inserirPM2(pm, aux, 1);
+	}
+
+	while (!vaziaPM2(pm, 1))
+		inserirPM2(pm, retirarPM2(pm, 1), 0);
+
+	exibirPM2(pm, 0);
+	printf("\n____________\n");
+
+	_getch();
+
+
+}
+
+void pilhaCaso2Ex3() {
+
+	printf("\nExpressao polonesa com TAD de char convertendo para inteiro\n");
+	TpPilhaM2 pm;
+
+	inicializarPM2(pm, 1);
+	char exp[100],aux;
+	int num1 = 0, num2 = 0, resultado = 0;
+
+	printf("\nForneca a expressao bolonhesa: ");
+	fflush(stdin);
+	gets_s(exp);
+
+	for (int i = 0; i < strlen(exp); i++) {
+		aux = exp[i];
+
+		if (isdigit(aux))
+			inserirPM2(pm, aux - '0', 0);
+
+		else if (aux == '*' || aux == '+' || aux == '-') {
+
+			num1 = retirarPM2(pm, 0);
+			num2 = retirarPM2(pm, 0);
+
+			if (aux == '*') 
+				resultado = num1 * num2;
+			if(aux== '+')
+				resultado = num1 + num2;
+			if (aux == '-')
+				resultado = num1 - num2;
+
+			inserirPM2(pm, resultado, 0);
+
+		}
+
+	}
+
+	resultado = retirarPM2(pm, 0);
+	printf("\nResultado da expressao polonesa pos-fixada foi: [%d]", resultado);
+
+	_getch();
+}
+
+void pilhaCaso2Ex5() {
+
+	TpPilhaM2 pm;
+
+	inicializarPM2(pm, 1);
+
+	char elem[TL];
+
+	for (int i = 0; i < TL; i++) {
+		printf("\nForneca os dados do vetor: ");
+		fflush(stdin);
+		scanf("%s", &elem[i]);
+		inserirPM2(pm, elem[i], 0);
+	}
+	system("cls");
+	printf("Vetor: \n");
+	for (int i = 0; i < TL; i++)
+		printf(" %c ", elem[i]);
+
+	printf("\nVetor invertido: \n");
+	while (!vaziaPM2(pm, 0))
+		printf(" %c ", retirarPM2(pm,0));
+
+	_getch();
+
+}
+
+void pilhaCaso2Ex6(const char nomeArq[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	TpPilhaM2 pm;
+	char chr;
+
+	inicializarPM2(pm, 1);
+
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		FILE* PtrN = fopen("pilhaCaso2Ex6.txt", "w");
+		chr = fgetc(PtrArq);
+
+		while (!feof(PtrArq)) {
+
+			if (chr != 32)
+				inserirPM2(pm, chr, 0);
+
+			chr = fgetc(PtrArq);
+		}
+
+		while (!vaziaPM2(pm, 0))
+			fprintf(PtrN, " %c ", retirarPM2(pm, 0));
+
+		fecharArq(PtrArq, PtrN);
+	}
+
+	ExibirMsg();
+	_getch();
+
+}
+
+void pilhaCaso2Ex7() {
+
+	TpPilhaM2 pm;
+	inicializarPM2(pm, 1);
+	char frase[10], aux;
+	int dif = 0, i = 0;
+
+	printf("\nForneca a frase: ");
+	fflush(stdin);
+	gets_s(frase);
+
+	for (int i = 0; i < strlen(frase); i++)
+		inserirPM2(pm, frase[i], 0);
+
+	while (!vaziaPM2(pm, 0)) {
+
+		aux = retirarPM2(pm, 0);
+		
+		if (aux != frase[i])
+			dif++;
+		i++;
+	}
+
+	if (dif > 0)
+		printf("\nNao sao palindromos");
+	else
+		printf("\nSao palindromos");
+
+
+	_getch();
+
+
+
+
+}
+
+void pilhaCaso2Ex9() {
+
+	TpPilhaM2 pm;
+
+	inicializarPM2(pm, 2);
+	char frase[100],aux;
+
+
+	printf("\nForneca a frase: ");
+	fflush(stdin);
+	gets_s(frase);
+
+	for (int i = 0; i < strlen(frase); i++)
+		inserirPM2(pm, frase[i], 0);
+
+	while (!vaziaPM2(pm, 0)) {
+
+		aux = retirarPM2(pm, 0);
+
+		if (aux != 32)
+			inserirPM2(pm, aux, 1);
+
+		if (aux == 32 || vaziaPM2(pm, 0)) {
+			while (!vaziaPM2(pm, 1))
+				printf("%c", retirarPM2(pm, 1));
+			printf(" ");
+		}
+
+	}
+	printf("\n\n");
+	ExibirMsg();
+	_getch();
+
+}
+
+void PaletesCaso2(const char nomeArq[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	TpPilhaM2 pm;
+	char chr;
+	inicializarPM2(pm, 3);
+
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		chr = fgetc(PtrArq);
+		while (!feof(PtrArq)) {
+
+			switch (chr) {
+
+			case '3':
+				if (chr == '3')
+					inserirPM2(pm, chr, 2);
+				break;
+			case '5':
+				if (chr == '5')
+					inserirPM2(pm, chr , 1);
+				break;
+			case '7':
+				if (chr == '7')
+					inserirPM2(pm, chr, 0);
+				break;
+
+			}
+			chr = fgetc(PtrArq);
+
+		}
+
+
+	}
+
+	while (!vaziaPM2(pm, 1) && elementoTopoPM2(pm, 1) < elementoTopoPM2(pm, 0))
+		inserirPM2(pm, retirarPM2(pm, 1), 0);
+	while(!vaziaPM2(pm,2) && elementoTopoPM2(pm, 2) < elementoTopoPM2(pm, 0))
+		inserirPM2(pm, retirarPM2(pm, 2), 0);
+
+	exibirPM2(pm, 0);
+
+	ExibirMsg();
+
+}
+
+void OrdenaVetorCaso2() {
+
+	TpPilhaM2 pm;
+	inicializarPM2(pm, 2);
+	char vet[TL],op,aux;
+
+	for (int i = 0; i < TL; i++) {
+		printf("\nInsira os dados do vetor: ");
+		fflush(stdin);
+		scanf("%s", &vet[i]);
+	}
+	
+	system("cls");
+
+	printf("\nVetor atualmente: ");
+	for (int i = 0; i < TL; i++)
+		printf(" %c ", vet[i]);
+
+	printf("\nDeseja ordenar do maior para o menor ou do menor para o maior ? [S = Menor para Maior] / [N = Maior para Menor]: ");
+	op = toupper(_getche());
+
+	system("cls");
+
+	if (op == 'S') {
+
+		for (int i = 0; i < TL - 1; i++) {
+			for (int j = 0; j < TL - 1; j++) {
+				if (vet[j] > vet[j + 1]) {
+					aux = vet[j];
+					vet[j] = vet[j + 1];
+					vet[j + 1] = aux;
+				}
+			}
+		}
+
+		printf("\nVetor ordenado com sucesso, ficando assim [Menor para Maior]");
+		for (int i = 0; i < TL; i++)
+			printf(" %c ", vet[i]);
+
+	}
+	else {
+		for (int i = 0; i < TL - 1; i++) {
+			for (int j = 0; j < TL - 1; j++) {
+				if (vet[j] < vet[j + 1]) {
+					aux = vet[j];
+					vet[j] = vet[j + 1];
+					vet[j + 1] = aux;
+				}
+			}
+		}
+
+		printf("\nVetor ordenado com sucesso, ficando assim [Maior para o Menor]");
+		for (int i = 0; i < TL; i++)
+			printf(" %c ", vet[i]);
+
+	}
+
+	for (int k = 0; k < TL; k++)
+		inserirPM2(pm, vet[k], 0);
+
+	while (!vaziaPM2(pm, 0))
+		inserirPM2(pm, retirarPM2(pm, 0), 1);
+	
+	printf("\nVetor inserido na pilha: ");
+	while (!vaziaPM2(pm, 1))
+		printf(" %c ", retirarPM2(pm, 1));
+
+	_getch();
+}
+#pragma endregion
 
 
 char Menu(void)
 {
 
 	system("cls");
-	printf("### MENU PARA OS Exercicios de Pilha padrao e caso 1 e 2 ###\n");
-	printf("**** MENU DE OPCOES ****");
+	printf("### MENU para os exercicios de Arq. Texto, Pilha e Fila. ###\n");
+	printf("**** OPCOES ****");
 	printf("\n\n***** ARQUIVO TEXTO *****");
 	printf("\n[A] Ex1 - Arquivo Texto");
 	printf("\n[B] Ex1 - B: Arquivo Texto com string");
@@ -1288,11 +1655,15 @@ char Menu(void)
 	printf("\n[7] Ex05 - Pilha com int - CASO 1");
 	printf("\n[8] Ex08 - pilha com char - CASO 1");
 	printf("\n\n***** PILHA CASO 2 *****");
-	printf("\n[9] ");
-	printf("\n[/] ");
-	printf("\n['] ");
-	printf("\n[-] ");
-	printf("\n[-] ");
+	printf("\n[9] Ex01 - pilha com char - CASO 2");
+	printf("\n[/] Ex02 - pilha com char - CASO 2");
+	printf("\n[+] Ex03 - pilha com char - CASO 2");
+	printf("\n[-] Ex05 - pilha com char - CASO 2");
+	printf("\n[*] Ex06 - pilha com char - CASO 2");
+	printf("\n[;] Ex07 - pilha com char - CASO 2");
+	printf("\n[.] Ex09 - pilha com char - CASO 2");
+	printf("\n[,] Exercicio Paletes - CASO 2 - Feito com int");
+	printf("\n[:] Ordenar vetor - CASO 2");
 
 	printf("\n[ESC] Sair do Programa");
 	printf("\nOpcao: ");
@@ -1310,7 +1681,6 @@ int main() {
 		system("cls");
 		switch (opcao)
 		{
-
 		case 'A':Ex1("arq.txt");
 			break;
 		case 'B':
@@ -1382,6 +1752,25 @@ int main() {
 			break;
 		case '8':pilhaCaso1Ex7();
 			break;
+		case '9':pilhaCaso2Ex1();
+			break;
+		case '/':pilhaCaso2Ex2();
+			break;
+		case '+':pilhaCaso2Ex3();
+			break;
+		case '-':pilhaCaso2Ex5();
+			break;
+		case '*':pilhaCaso2Ex6("arqEx6Pilha.txt");
+			break;
+		case ';':pilhaCaso2Ex7();
+			break;
+		case '.':pilhaCaso2Ex9();
+			break;
+		case ',':PaletesCaso2("Paletes.txt");
+			break;
+		case ':':OrdenaVetorCaso2();
+			break;
+
 		}
 
 	} while (opcao != 27);
