@@ -4,5 +4,5 @@ C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqText
 C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(593,11): warning C4778: 'printf': cadeia de formato não terminada '%'
 C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(918,22): warning C4101: 'paux': variável local não referenciada
 C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(967,14): warning C4101: 'p2': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(1063,28): warning C4101: 'vet': variável local não referenciada
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(1064,29): warning C4101: 'vet': variável local não referenciada
   ArqTextoPilhaFila.vcxproj -> C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\x64\Debug\ArqTextoPilhaFila.exe

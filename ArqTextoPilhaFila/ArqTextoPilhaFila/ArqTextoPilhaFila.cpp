@@ -1202,8 +1202,44 @@ void pilhaCaso1Ex5() {
 	_getch();
 
 }
-#pragma endregion
 
+void pilhaCaso1Ex7() {
+	TpPilhaM pm;
+	char frase[10],aux;
+	int dif = 0, j = 0;
+	inicializarPMA(pm);
+
+	printf("\nForneca a frase: ");
+	fflush(stdin);
+	gets_s(frase);
+
+
+	for (int i = 0; i < strlen(frase); i++)
+		inserirPMA(pm, frase[i], 1);
+	
+
+	while (!vaziaPMA(pm.TOPO1, 1)) {
+		aux = retirarPMA(pm, 1);
+
+		if (aux == frase[j]) {
+			j++;
+			inserirPMA(pm, aux, 0);
+		}
+			
+		else
+			dif++;
+	}
+
+	if (dif > 0)
+		printf("\nNao sao palindromos");
+	else
+		printf("\nSao palindromos");
+
+	_getch();
+
+
+}
+#pragma endregion
 
 
 
@@ -1250,7 +1286,8 @@ char Menu(void)
 	printf("\n[5] Exercicio Paletes - CASO 1 - Feito com int");
 	printf("\n[6] Ex06 - Pilha com int - CASO 1");
 	printf("\n[7] Ex05 - Pilha com int - CASO 1");
-	printf("\n[8] ");
+	printf("\n[8] Ex08 - pilha com char - CASO 1");
+	printf("\n\n***** PILHA CASO 2 *****");
 	printf("\n[9] ");
 	printf("\n[/] ");
 	printf("\n['] ");
@@ -1342,6 +1379,8 @@ int main() {
 		case '6':pilhaCaso1Ex6("arqEx6Pilha.txt");
 			break;
 		case '7':pilhaCaso1Ex5();
+			break;
+		case '8':pilhaCaso1Ex7();
 			break;
 		}
 
