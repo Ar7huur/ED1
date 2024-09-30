@@ -14,6 +14,7 @@
 #include "TADPilhaPadraoChar.h"
 #include "PilhaMultiplaCaso1.h"
 #include "TADPilhaNPilhasCaso2.h"
+#include "TADFila.h"
 
 #pragma region Arquivo Texto
 void fecharArq(FILE* NomeArq1, FILE* NomeArq2) {
@@ -1206,7 +1207,7 @@ void pilhaCaso1Ex5() {
 
 void pilhaCaso1Ex7() {
 	TpPilhaM pm;
-	char frase[10],aux;
+	char frase[10], aux;
 	int dif = 0, j = 0;
 	inicializarPMA(pm);
 
@@ -1217,7 +1218,7 @@ void pilhaCaso1Ex7() {
 
 	for (int i = 0; i < strlen(frase); i++)
 		inserirPMA(pm, frase[i], 1);
-	
+
 
 	while (!vaziaPMA(pm.TOPO1, 1)) {
 		aux = retirarPMA(pm, 1);
@@ -1226,7 +1227,7 @@ void pilhaCaso1Ex7() {
 			j++;
 			inserirPMA(pm, aux, 0);
 		}
-			
+
 		else
 			dif++;
 	}
@@ -1249,7 +1250,7 @@ void pilhaCaso2Ex1() {
 	char elem;
 	inicializarPM2(pm, 3);
 
-	for (int i = 0; i < MAXPILHACASO2/3; i++) {
+	for (int i = 0; i < MAXPILHACASO2 / 3; i++) {
 		printf("\nForneca os elementos do tipo CHAR para a pilha 1:");
 		fflush(stdin);
 		scanf("%s", &elem);
@@ -1258,7 +1259,7 @@ void pilhaCaso2Ex1() {
 
 	exibirPM2(pm, 0);
 
-	for (int i = 0; i < MAXPILHACASO2/3; i++) {
+	for (int i = 0; i < MAXPILHACASO2 / 3; i++) {
 		printf("\nForneca os elementos do tipo CHAR para a pilha 2:");
 		fflush(stdin);
 		scanf("%s", &elem);
@@ -1274,14 +1275,14 @@ void pilhaCaso2Ex1() {
 	exibirPM2(pm, 0);
 	_getch();
 
-	
-} 
+
+}
 
 void pilhaCaso2Ex2() {
 
 	TpPilhaM2 pm;
-	char elem, elemRemove,aux;
-	inicializarPM2(pm,2);
+	char elem, elemRemove, aux;
+	inicializarPM2(pm, 2);
 
 
 	for (int i = 0; i < MAXPILHACASO2; i++) {
@@ -1320,7 +1321,7 @@ void pilhaCaso2Ex3() {
 	TpPilhaM2 pm;
 
 	inicializarPM2(pm, 1);
-	char exp[100],aux;
+	char exp[100], aux;
 	int num1 = 0, num2 = 0, resultado = 0;
 
 	printf("\nForneca a expressao bolonhesa: ");
@@ -1338,9 +1339,9 @@ void pilhaCaso2Ex3() {
 			num1 = retirarPM2(pm, 0);
 			num2 = retirarPM2(pm, 0);
 
-			if (aux == '*') 
+			if (aux == '*')
 				resultado = num1 * num2;
-			if(aux== '+')
+			if (aux == '+')
 				resultado = num1 + num2;
 			if (aux == '-')
 				resultado = num1 - num2;
@@ -1378,7 +1379,7 @@ void pilhaCaso2Ex5() {
 
 	printf("\nVetor invertido: \n");
 	while (!vaziaPM2(pm, 0))
-		printf(" %c ", retirarPM2(pm,0));
+		printf(" %c ", retirarPM2(pm, 0));
 
 	_getch();
 
@@ -1436,7 +1437,7 @@ void pilhaCaso2Ex7() {
 	while (!vaziaPM2(pm, 0)) {
 
 		aux = retirarPM2(pm, 0);
-		
+
 		if (aux != frase[i])
 			dif++;
 		i++;
@@ -1460,7 +1461,7 @@ void pilhaCaso2Ex9() {
 	TpPilhaM2 pm;
 
 	inicializarPM2(pm, 2);
-	char frase[100],aux;
+	char frase[100], aux;
 
 
 	printf("\nForneca a frase: ");
@@ -1512,7 +1513,7 @@ void PaletesCaso2(const char nomeArq[100]) {
 				break;
 			case '5':
 				if (chr == '5')
-					inserirPM2(pm, chr , 1);
+					inserirPM2(pm, chr, 1);
 				break;
 			case '7':
 				if (chr == '7')
@@ -1529,7 +1530,7 @@ void PaletesCaso2(const char nomeArq[100]) {
 
 	while (!vaziaPM2(pm, 1) && elementoTopoPM2(pm, 1) < elementoTopoPM2(pm, 0))
 		inserirPM2(pm, retirarPM2(pm, 1), 0);
-	while(!vaziaPM2(pm,2) && elementoTopoPM2(pm, 2) < elementoTopoPM2(pm, 0))
+	while (!vaziaPM2(pm, 2) && elementoTopoPM2(pm, 2) < elementoTopoPM2(pm, 0))
 		inserirPM2(pm, retirarPM2(pm, 2), 0);
 
 	exibirPM2(pm, 0);
@@ -1542,14 +1543,14 @@ void OrdenaVetorCaso2() {
 
 	TpPilhaM2 pm;
 	inicializarPM2(pm, 2);
-	char vet[TL],op,aux;
+	char vet[TL], op, aux;
 
 	for (int i = 0; i < TL; i++) {
 		printf("\nInsira os dados do vetor: ");
 		fflush(stdin);
 		scanf("%s", &vet[i]);
 	}
-	
+
 	system("cls");
 
 	printf("\nVetor atualmente: ");
@@ -1600,7 +1601,7 @@ void OrdenaVetorCaso2() {
 
 	while (!vaziaPM2(pm, 0))
 		inserirPM2(pm, retirarPM2(pm, 0), 1);
-	
+
 	printf("\nVetor inserido na pilha: ");
 	while (!vaziaPM2(pm, 1))
 		printf(" %c ", retirarPM2(pm, 1));
@@ -1609,6 +1610,467 @@ void OrdenaVetorCaso2() {
 }
 #pragma endregion
 
+#pragma region Fila
+
+void InserindoFila() {
+
+	TpFila f1, f2, faux;
+	int elem;
+	inicializaF(f1);
+	inicializaF(f2);
+	inicializaF(faux);
+
+	for (int i = 0; i < MAXF / 2; i++) {
+		printf("\nForneca os elementos da fila 1: ");
+		scanf("%d", &elem);
+		insereF(f1, elem);
+	}
+
+	for (int i = 0; i < MAXF / 2; i++) {
+		printf("\nForneca os elementos da fila 2: ");
+		scanf("%d", &elem);
+		insereF(f2, elem);
+	}
+
+	printf("\nFila 1: ");
+	exibeF(f1);
+	printf("\nFila 2: ");
+	exibeF(f2);
+	Sleep(1200);
+	system("cls");
+
+	while (!vaziaF(f2.fim))
+		insereF(faux, retiraF(f2));
+
+	while (!vaziaF(faux.fim))
+		insereF(f1, retiraF(faux));
+
+	printf("\nFila Final: ");
+	exibeF(f1);
+	ExibirMsg();
+	_getch();
+
+
+}
+
+void RemovendoElemFila() {
+	TpFila f1, f2;
+	int elem = 0, elemRemove = 0, aux = 0;
+	inicializaF(f1);
+	inicializaF(f2);
+
+	for (int i = 0; i < MAXF; i++) {
+		printf("\nForneca os elementos da FILA: ");
+		scanf("%d", &elem);
+		insereF(f1, elem);
+	}
+
+	printf("\nFila atualmente: ");
+	exibeF(f1);
+
+	printf("\nForneca o elemento para ser removido: ");
+	scanf("%d", &elemRemove);
+
+	system("cls");
+
+	printf("\nFila atualmente: ");
+	exibeF(f1);
+
+	while (!vazia(f1.fim)) {
+
+		aux = retiraF(f1);
+
+		if (aux != elemRemove)
+			insereF(f2, aux);
+
+	}
+
+	printf("\nFila sem o elemento: ");
+	exibeF(f2);
+
+
+	_getch();
+
+
+
+}
+
+void Ex01() {
+	TpFila f1;
+
+	int num = 0;
+
+	inicializaF(f1);
+
+	do {
+
+		num = rand() % 2;
+
+		printf("\nOpcao escolhida: %d", num);
+
+		if (num == 1 && !cheia(f1.fim)) {
+
+			num = rand() % 10;
+
+			insereF(f1, num);
+			printf("\n");
+			exibeF(f1);
+		}
+		else if (num != 1 && !vazia(f1.fim)) {
+
+			retiraF(f1);
+			printf("\n");
+			exibeF(f1);
+		}
+
+		Sleep(1000);
+
+	} while (!_kbhit());
+
+	_getch();
+}
+
+void Ex03() {
+
+	TpFila f;
+
+	inicializaF(f);
+
+	int imp = 3, gravaInterno = 5, leitura = 4, gravaExt = 8;
+	int ut = 2, tarefa, utTarefa = 0;
+
+
+	do {
+
+		if (ut % 2 == 1) {
+
+			tarefa = rand() % 4;
+
+			switch (tarefa) {
+
+			case '0':
+				if (!cheiaF(f.fim)) {
+
+					printf("\nInseriu uma impressao na fila: ");
+					printf("\nFila atual: ");
+					exibeF(f);
+					insereF(f, imp);
+				}
+				break;
+
+			case '1':
+				if (!cheiaF(f.fim)) {
+					printf("\nInseriu uma gravacao em dispositivo interno: ");
+					printf("\nFila Atual: ");
+					exibeF(f);
+					insereF(f, gravaInterno);
+				}
+				break;
+			case '2':
+				if (!cheiaF(f.fim)) {
+					printf("\nInseriu uma leitura: ");
+					printf("\nFila atual: ");
+					exibeF(f);
+					insereF(f, leitura);
+				}
+				break;
+
+			case '3':
+				if (!cheiaF(f.fim)) {
+					printf("\nInseriu uma gravacao em dispositivo externo: ");
+					printf("Fila atual: ");
+					exibeF(f);
+					insereF(f, gravaExt);
+				}
+			}
+		}
+
+		if (utTarefa % 3 == 1 && !vaziaF(f.fim) && f.fila[0] == 3) {
+			printf("\nRetirou uma impressao da fila: ");
+			retiraF(f);
+			printf("\nFila atual: ");
+			exibeF(f);
+		}
+		if (utTarefa % 5 == 1 && !vaziaF(f.fim) && f.fila[0] == 5) {
+			printf("\nRetirou uma gravacao interna da fila");
+			retiraF(f);
+			printf("\nFila atualmente: ");
+			exibeF(f);
+		}
+		if (utTarefa % 4 == 1 && !vaziaF(f.fim) && f.fila[0] == 4) {
+			printf("\nRetirou uma leitura da fila: ");
+			retiraF(f);
+			printf("Fila atual: ");
+			exibeF(f);
+		}
+		if (utTarefa % 4 == 1 && !vaziaF(f.fim) && f.fila[0] == 8) {
+			printf("\nRetirou uma gravacao externa da fila: ");
+			retiraF(f);
+			printf("\nFila atualmente: ");
+			exibeF(f);
+		}
+
+		ut++;
+		utTarefa++;
+
+
+	} while (!_kbhit());
+
+
+	_getch();
+
+}
+
+void ExCaixasBanco() {
+
+	TpFila f;
+	inicializaF(f);
+
+	int c1 = 1, c2 = 2, c3 = 3, caixas = 0, numTarefas = 0, pessoas = 0, pessoasTentaram = 0;
+	int ut = 0, utAtual = 0;
+	int caixa1Func = 0, caixa2Func = 0, caixa3Func = 0;
+	float tempoM = 0;
+	int dep = 0, saq = 0, poup = 0, cCorrente = 0, boletos = 0, tExterna = 0, tInterna = 0;
+
+	printf("\nForneca a UT: ");
+	scanf("%d", &ut);
+
+	while (utAtual <= ut) {
+
+		caixas = rand() % 3;
+		numTarefas = rand() % 7;
+
+		pessoasTentaram++;  
+
+		if (!cheiaF(f.fim)) {
+			insereF(f, numTarefas);
+
+			switch (caixas) {
+
+			case 0:
+				printf("\nOptou pelo caixa 1 ");
+				retiraF(f);
+				pessoas++;
+				caixa1Func++;
+				break;
+
+			case 1:
+				printf("\nOptou pelo caixa 2 ");
+				retiraF(f);
+				pessoas++;
+				caixa2Func++;
+				break;
+
+			case 2:
+				printf("\nOptou pelo caixa 3 ");
+				retiraF(f);
+				pessoas++;
+				caixa3Func++;
+				break;
+			}
+		}
+		else {
+			printf("\nFila cheia. Pessoa não pode ser atendida.");
+		}
+
+		if (numTarefas == 1) dep++;
+		if (numTarefas == 2) saq++;
+		if (numTarefas == 3) poup++;
+		if (numTarefas == 4) cCorrente++;
+		if (numTarefas == 5) boletos++;
+		if (numTarefas == 6) tExterna++;
+		if (numTarefas == 7) tInterna++;
+
+		utAtual++;
+	}
+
+	Sleep(1300);
+	system("cls");
+
+	if (pessoas > 0) {
+		tempoM = (float)ut / pessoas;  
+	}
+	else {
+		printf("\nNenhuma pessoa foi atendida.\n");
+		return;  
+	}
+
+	int pessoasNaoAtendidas = pessoasTentaram - pessoas;
+
+	// Resultados
+	printf("\nTempo medio de espera: %.3f", tempoM);
+	printf("\nQtde de pessoas atendidas: %d", pessoas);
+	printf("\nQtde de pessoas que tentaram ser atendidas: %d", pessoasTentaram);
+	printf("\nQtde de pessoas nao atendidas: %d", pessoasNaoAtendidas);
+	printf("\nHouve %d depositos, %d saques, %d acessos ao extrato poupanca, %d acessos ao extrato de conta corrente, %d boletos pagos, %d transferencias externas e %d transferencias internas.", dep, saq, poup, cCorrente, boletos, tExterna, tInterna);
+	printf("\nO caixa 1 atendeu %d, o caixa 2 atendeu %d e o caixa 3 atendeu %d", caixa1Func, caixa2Func, caixa3Func);
+
+	_getch();
+}
+
+void Ex02() {
+
+	TpFila f;
+	inicializaF(f);
+
+	int tempo = 10, carros=0,qtdeVeiculos=0,tempProx=0;
+
+	for (int i = 0; i < MAXF; i++) 
+		insereF(f, i);
+		
+	do {
+
+		if (tempo > 0 && !vaziaF(f.fim)) {
+			carros = retiraF(f);
+			tempo--;
+			qtdeVeiculos++;
+			tempProx++;
+			printf("\nO veiculo %d saiu do semaforo no tempo %d", carros, tempProx);
+		}
+		if (tempo <= 0) {
+			printf("\nSinal fechado\n");
+			tempo = 10;
+			tempProx += 10;
+		}
+
+		if (vaziaF(f.fim)) {
+			for (int i = 0; i < MAXF; i++)
+				insereF(f, i);
+		}
+
+	} while (!_kbhit());
+
+	Sleep(1300);
+	system("cls");
+	printf("Houve um total de %d veiculos que passaram pelo semaforo",qtdeVeiculos);
+
+	_getch();
+	Sleep(1500);
+}
+
+void Ex04() {
+	TpFila f;
+	int c1 = 5, c2 = 2, c3 = 4, c4 = 7,caixas=0;
+	int ut=3,utAtendimento=0,pessoas=0,diasSemana=0,pess=0;
+	int atendimentosC1 = 0, atendimentosC2 = 0, atendimentosC3 = 0, atendimentosC4 = 0;
+	int fechadoC1 = 0, fechadoC2 = 0, fechadoC3 = 0, fechadoC4 = 0;
+	float tempoM = 0;
+	inicializaF(f);
+
+	do {
+		if (ut % 3 == 1) {
+			caixas = rand() % 4;
+			diasSemana = rand() % 4;
+			switch (caixas) {
+			case 0:
+
+				if (!cheia(f.fim) && diasSemana != 0) {
+					printf("\nEntrou no caixa 1: ");
+					insereF(f, c1);
+					printf("\nFila atualmente: ");
+					exibeF(f);
+					pess++;
+					atendimentosC1++;
+				}
+				else {
+					printf("\nCaixa 1 esta fechado");
+					fechadoC1++;
+				}
+					
+
+				break;
+
+			case 1:
+				if (!cheia(f.fim) && diasSemana != 1) {
+					printf("\nEntrou no caixa 2: ");
+					insereF(f, c2);
+					printf("\nFila atualmente");
+					exibeF(f);
+					pess++;
+					atendimentosC2++;
+				}
+				else {
+					printf("\nCaixa 2 esta fechado");
+					fechadoC2++;
+				}
+				break;
+
+			case 2: 
+				if (!cheia(f.fim) && diasSemana != 2) {
+					printf("\nEntrou no caixa 3");
+					insereF(f, c3);
+					printf("\nFila atualmente: ");
+					exibeF(f);
+					pess++;
+					atendimentosC3++;
+				}
+				else {
+					printf("\nCaixa 3 esta fechado");
+					fechadoC3++;
+				}
+				break;
+			case 4:
+				if (!cheia(f.fim) && diasSemana != 3) {
+					printf("\nEntrou no caixa 4");
+					insereF(f, c4);
+					printf("\nFila atualmente");
+					exibeF(f);
+					pessoas++;
+					atendimentosC4++;
+				}
+				else {
+					printf("\nCaixa 4 esta fechado");
+					fechadoC4++;
+				}
+			}
+			
+		}
+
+		if (utAtendimento % 5 == 1 && !vaziaF(f.fim) && f.fila[0] == 5) {
+			printf("\nPessoa se retirando do caixa 1 apos o atendimento..");
+			retiraF(f);
+			printf("Fila atual: ");
+			exibeF(f);
+		}
+		if (utAtendimento % 2 == 1 && !vaziaF(f.fim) && f.fila[0] == 2) {
+			printf("\nPessoa se retirando do caixa 2 apos o atendimento..");
+			retiraF(f);
+			printf("\nFila atual: ");
+			exibeF(f);
+		}
+		if (utAtendimento % 4 == 1 && !vaziaF(f.fim) && f.fila[0] == 4) {
+			printf("\nPessoa se retirando do caixa 3 apos o atendimento..");
+			retiraF(f);
+			printf("\nFila atual: ");
+			exibeF(f);
+		}
+		if (utAtendimento % 7 == 1 && !vaziaF(f.fim) && f.fila[0] == 7) {
+			printf("\nPessoa se retirando do caixa 4 apos o atendimento..");
+			retiraF(f);
+			printf("\nFila atual: ");
+			exibeF(f);
+		}
+
+		ut++;
+		utAtendimento++;
+	} while (!_kbhit());
+
+
+	tempoM = float(ut) / pess;
+
+	system("cls");
+	printf("\nO tempo medio de atendimento eh de: %.5f", tempoM);
+	printf("\nO caixa 1 atendeu %d, o caixa 2 atendeu %d, o 3 atendeu %d e o 4 atendeu %d ", atendimentosC1, atendimentosC2, atendimentosC3, atendimentosC4);
+	printf("\nTivemos um total de %d clientes", pess);
+	printf("\nO caixa 1 ficou %d fechado, o caixa 2 ficou %d fechado, o 3 ficou %d fechado e o 4 ficou %d fechado", fechadoC1, fechadoC2, fechadoC3, fechadoC4);
+
+	Sleep(20000);
+	_getch();
+
+
+
+}
+#pragma endregion
 
 char Menu(void)
 {
@@ -1664,7 +2126,14 @@ char Menu(void)
 	printf("\n[.] Ex09 - pilha com char - CASO 2");
 	printf("\n[,] Exercicio Paletes - CASO 2 - Feito com int");
 	printf("\n[:] Ordenar vetor - CASO 2");
-
+	printf("\n\n***** FILA *****");
+	printf("\n[=] Inserir na fila - Feito com int");
+	printf("\n[]] Remove da fila - Feito com int");
+	printf("\n[[] Ex01 - FILA");
+	printf("\n[`] Ex caixas de banco - FILA");
+	printf("\n[|] Ex03 - FILA");
+	printf("\n[~] Ex02 - FILA");
+	printf("\n[?] Ex04 - FILA sem prioridade (pq eu nao sei direito essa merda)");
 	printf("\n[ESC] Sair do Programa");
 	printf("\nOpcao: ");
 
@@ -1769,6 +2238,20 @@ int main() {
 		case ',':PaletesCaso2("Paletes.txt");
 			break;
 		case ':':OrdenaVetorCaso2();
+			break;
+		case '=':InserindoFila();
+			break;
+		case ']':RemovendoElemFila();
+			break;
+		case '[':Ex01();
+			break;
+		case '|':Ex03();
+			break;
+		case '`':ExCaixasBanco();
+			break;
+		case '~':Ex02();
+			break;
+		case '?':Ex04();
 			break;
 
 		}
