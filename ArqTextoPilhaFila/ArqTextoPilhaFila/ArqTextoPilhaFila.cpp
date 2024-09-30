@@ -2070,6 +2070,81 @@ void Ex04() {
 
 
 }
+
+void VetorOrdenadoFila() {
+
+	TpFila f;
+	inicializaF(f);
+
+	int vet[TL],aux=0;
+	char ops;
+
+
+	for (int i = 0; i < TL; i++) {
+		printf("\nInsira os numeros do vetor: ");
+		scanf("%d", &vet[i]);
+	}
+
+
+	printf("\nInforme se quer ordenar do menor para o maior ou do maior para o menor: Opcao 1 ou 2: ");
+	ops = toupper(_getche());
+
+	system("cls");
+
+	if (ops == '1') {
+
+		printf("\nVetor atualmente: ");
+		for (int i = 0; i < TL; i++)
+			printf(" %d ", vet[i]);
+
+		for (int i = 0; i < TL - 1; i++) {
+			for (int j = 0; j < TL - 1; j++) {
+				if (vet[j] > vet[j + 1]) {
+					aux = vet[j];
+					vet[j] = vet[j + 1];
+					vet[j + 1] = aux;
+				}
+			}
+		}
+
+		printf("\n\nVetor ordenado do menor para o maior: ");
+		for (int i = 0; i < TL; i++)
+			printf(" %d ", vet[i]);
+
+	}
+	else {
+
+		printf("\nVetor atualmente: ");
+		for (int i = 0; i < TL; i++)
+			printf(" %d ", vet[i]);
+
+		for (int i = 0; i < TL; i++) {
+			for (int j = 0; j < TL; j++) {
+				if (vet[j] < vet[j + 1]) {
+					aux = vet[j];
+					vet[j] = vet[j + 1];
+					vet[j + 1] = aux;
+				}
+			}
+		}
+
+		printf("\nVetor ordenado do maior para o menor: ");
+		for (int i = 0; i < TL; i++)
+			printf(" %d ", vet[i]);
+	}
+
+
+	printf("\nFila atualmente com o vetor ajustado:");
+	for (int i = 0; i < TL; i++)
+		insereF(f, vet[i]);
+
+	exibeFSemBarraN(f);
+
+	Sleep(10000);
+	_getch();
+
+
+}
 #pragma endregion
 
 char Menu(void)
@@ -2134,6 +2209,7 @@ char Menu(void)
 	printf("\n[|] Ex03 - FILA");
 	printf("\n[~] Ex02 - FILA");
 	printf("\n[?] Ex04 - FILA sem prioridade (pq eu nao sei direito essa merda)");
+	printf("\n[{] Vetor ordenado e inserido na FILA.");
 	printf("\n[ESC] Sair do Programa");
 	printf("\nOpcao: ");
 
@@ -2252,6 +2328,8 @@ int main() {
 		case '~':Ex02();
 			break;
 		case '?':Ex04();
+			break;
+		case '{':VetorOrdenadoFila();
 			break;
 
 		}

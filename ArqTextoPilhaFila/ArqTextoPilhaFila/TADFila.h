@@ -24,6 +24,12 @@ int vaziaF(int fim){
 int cheiaF(int fim){
 	return fim==MAXF-1;
 }
+void exibeFSemBarraN(TpFila f) {
+	while (!vaziaF(f.fim))
+		printf(" %d ", retiraF(f));
+}
+
+
 void exibeF(TpFila f){
 	while(!vaziaF(f.fim))
 		printf(" %d ",retiraF(f));
