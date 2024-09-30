@@ -1,8 +1,8 @@
 ﻿  ArqTextoPilhaFila.cpp
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(360,17): warning C4101: 'chr2': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(590,26): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(594,11): warning C4778: 'printf': cadeia de formato não terminada '%'
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(919,22): warning C4101: 'paux': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(968,14): warning C4101: 'p2': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(1065,29): warning C4101: 'vet': variável local não referenciada
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(361,17): warning C4101: 'chr2': variável local não referenciada
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(591,26): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(595,11): warning C4778: 'printf': cadeia de formato não terminada '%'
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(920,22): warning C4101: 'paux': variável local não referenciada
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(969,14): warning C4101: 'p2': variável local não referenciada
+C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(1066,29): warning C4101: 'vet': variável local não referenciada
   ArqTextoPilhaFila.vcxproj -> C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\x64\Debug\ArqTextoPilhaFila.exe
