@@ -10,11 +10,14 @@
 #define TL 7
 #define tl 3 //paletes
 #define PMA 5 //exercicio 1 de pilha multipla caso 1
+#define B 100
 #include"TADPilha.h"
 #include "TADPilhaPadraoChar.h"
 #include "PilhaMultiplaCaso1.h"
 #include "TADPilhaNPilhasCaso2.h"
 #include "TADFila.h"
+#include "TadFilaCircular.h"
+#include "TADPilhaBrinquedo.h"
 
 #pragma region Arquivo Texto
 void fecharArq(FILE* NomeArq1, FILE* NomeArq2) {
@@ -1611,7 +1614,6 @@ void OrdenaVetorCaso2() {
 #pragma endregion
 
 #pragma region Fila
-
 void InserindoFila() {
 
 	TpFila f1, f2, faux;
@@ -1840,7 +1842,7 @@ void ExCaixasBanco() {
 		caixas = rand() % 3;
 		numTarefas = rand() % 7;
 
-		pessoasTentaram++;  
+		pessoasTentaram++;
 
 		if (!cheiaF(f.fim)) {
 			insereF(f, numTarefas);
@@ -1888,11 +1890,11 @@ void ExCaixasBanco() {
 	system("cls");
 
 	if (pessoas > 0) {
-		tempoM = (float)ut / pessoas;  
+		tempoM = (float)ut / pessoas;
 	}
 	else {
 		printf("\nNenhuma pessoa foi atendida.\n");
-		return;  
+		return;
 	}
 
 	int pessoasNaoAtendidas = pessoasTentaram - pessoas;
@@ -1913,11 +1915,11 @@ void Ex02() {
 	TpFila f;
 	inicializaF(f);
 
-	int tempo = 10, carros=0,qtdeVeiculos=0,tempProx=0;
+	int tempo = 10, carros = 0, qtdeVeiculos = 0, tempProx = 0;
 
-	for (int i = 0; i < MAXF; i++) 
+	for (int i = 0; i < MAXF; i++)
 		insereF(f, i);
-		
+
 	do {
 
 		if (tempo > 0 && !vaziaF(f.fim)) {
@@ -1942,7 +1944,7 @@ void Ex02() {
 
 	Sleep(1300);
 	system("cls");
-	printf("Houve um total de %d veiculos que passaram pelo semaforo",qtdeVeiculos);
+	printf("Houve um total de %d veiculos que passaram pelo semaforo", qtdeVeiculos);
 
 	_getch();
 	Sleep(1500);
@@ -1950,8 +1952,8 @@ void Ex02() {
 
 void Ex04() {
 	TpFila f;
-	int c1 = 5, c2 = 2, c3 = 4, c4 = 7,caixas=0;
-	int ut=3,utAtendimento=0,pessoas=0,diasSemana=0,pess=0;
+	int c1 = 5, c2 = 2, c3 = 4, c4 = 7, caixas = 0;
+	int ut = 3, utAtendimento = 0, pessoas = 0, diasSemana = 0, pess = 0;
 	int atendimentosC1 = 0, atendimentosC2 = 0, atendimentosC3 = 0, atendimentosC4 = 0;
 	int fechadoC1 = 0, fechadoC2 = 0, fechadoC3 = 0, fechadoC4 = 0;
 	float tempoM = 0;
@@ -1976,7 +1978,7 @@ void Ex04() {
 					printf("\nCaixa 1 esta fechado");
 					fechadoC1++;
 				}
-					
+
 
 				break;
 
@@ -1995,7 +1997,7 @@ void Ex04() {
 				}
 				break;
 
-			case 2: 
+			case 2:
 				if (!cheia(f.fim) && diasSemana != 2) {
 					printf("\nEntrou no caixa 3");
 					insereF(f, c3);
@@ -2023,7 +2025,7 @@ void Ex04() {
 					fechadoC4++;
 				}
 			}
-			
+
 		}
 
 		if (utAtendimento % 5 == 1 && !vaziaF(f.fim) && f.fila[0] == 5) {
@@ -2076,7 +2078,7 @@ void VetorOrdenadoFila() {
 	TpFila f;
 	inicializaF(f);
 
-	int vet[TL],aux=0;
+	int vet[TL], aux = 0;
 	char ops;
 
 
@@ -2147,6 +2149,98 @@ void VetorOrdenadoFila() {
 }
 #pragma endregion
 
+#pragma region Fila com prioridade
+void RemanejarParaPilha(TpFilaCirc fc, TpPilhaBrinquedo p);
+void ordenarBrinquedo(TpBrinquedo brinquedo[], int n);
+void Ex1A(const char nomeArq[100]);
+void Ex1A(const char nomeArq[100]) {
+
+	FILE* PtrArq = fopen(nomeArq, "r");
+	TpBrinquedo b;
+	TpFilaCirc fc;
+	TpPilhaBrinquedo p;
+	inicializaB(p);
+	char ceps[8];
+	int numCasas, numBrinqs;
+	inicializarFC(fc);
+	if (PtrArq == NULL)
+		printf("\nErro com o arquivo");
+	else {
+
+		fscanf(PtrArq, "%[^;];%d;%d", &b.cep, &b.numCasa, &b.numBrinq);
+		while (!feof(PtrArq)) {
+
+			inserirBrinqFC(fc, b);
+			fscanf(PtrArq, "%[^;];%d;%d", &b.cep, &b.numCasa, &b.numBrinq);
+		}
+
+		fclose(PtrArq);
+
+	}
+	exibeFCBrinquedo(fc);
+	printf("\n------------FILA---------------------\n\n\n\n");
+	RemanejarParaPilha(fc, p);
+
+
+	_getch();
+
+}
+
+
+void ordenarBrinquedo(TpBrinquedo brinquedo[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = 0; j < n - i - 1; j++) {
+			if (strcmp(brinquedo[j].cep, brinquedo[j + 1].cep) > 0 ||
+				(strcmp(brinquedo[j].cep, brinquedo[j + 1].cep) == 0 &&
+					brinquedo[j].numCasa > brinquedo[j + 1].numCasa)) {
+
+				// Troca os brinquedos
+				TpBrinquedo temp = brinquedo[j];
+				brinquedo[j] = brinquedo[j + 1];
+				brinquedo[j + 1] = temp;
+			}
+		}
+	}
+}
+
+
+
+
+
+void RemanejarParaPilha(TpFilaCirc fc, TpPilhaBrinquedo p) {
+	TpBrinquedo brinquedo[MAXFILAFC];
+	int n = 0; // Contador de brinquedos
+
+
+	while (!vaziaFC(fc.cont)) {
+		brinquedo[n] = retirarBrinqFC(fc);
+		printf("%s, %d, %d\n", brinquedo[n].cep, brinquedo[n].numCasa, brinquedo[n].numBrinq); 
+		
+		n++;
+	}
+
+	ordenarBrinquedo(brinquedo, n);
+
+	printf("Depois da ord \n\n");
+	for (int i = 0; i < n; i++) {
+		printf("%s, %d, %d\n", brinquedo[i].cep, brinquedo[i].numCasa, brinquedo[i].numBrinq); 
+		insereBrinquedo(p, brinquedo[i]); 
+	}
+	system("cls");
+	exibeBrinquedo(p);
+	system("cls"); 
+	exibeBrinquedo(p); 
+}
+
+
+
+
+
+
+
+
+#pragma endregion
+
 char Menu(void)
 {
 
@@ -2210,6 +2304,7 @@ char Menu(void)
 	printf("\n[~] Ex02 - FILA");
 	printf("\n[?] Ex04 - FILA sem prioridade (pq eu nao sei direito essa merda)");
 	printf("\n[{] Vetor ordenado e inserido na FILA.");
+	printf("\n[^] Inserir no bau - FILA Circular.");
 	printf("\n[ESC] Sair do Programa");
 	printf("\nOpcao: ");
 
@@ -2331,7 +2426,10 @@ int main() {
 			break;
 		case '{':VetorOrdenadoFila();
 			break;
-
+		case '^':Ex1A("arqs.txt");
+			break;
+		case '}':
+			break;
 		}
 
 	} while (opcao != 27);
