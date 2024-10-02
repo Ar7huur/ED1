@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+Ôªø#define _CRT_SECURE_NO_WARNINGS
 #include <string.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -230,7 +230,7 @@ void Ex5() {
 
 		printf("\nQual a data da aposta ? [dd/mm/yyyy]: ");
 		fflush(stdin);
-		scanf("%s", &data);//uso scanf pq o gets n„o funciona no vstudio
+		scanf("%s", &data);//uso scanf pq o gets n√£o funciona no vstudio
 		fprintf(PtrArq, "%s", data);
 		fprintf(PtrArq, "\t");
 
@@ -576,7 +576,7 @@ void Ex22() {
 }
 
 void Ex23() {
-	//validando a conta de aulas assistidas, aonde: faltas com 18, ent„o houve 36 aulas sendo assim reprovado, faltas com 18 e 80 aulas, sendo assim, aprovado
+	//validando a conta de aulas assistidas, aonde: faltas com 18, ent√£o houve 36 aulas sendo assim reprovado, faltas com 18 e 80 aulas, sendo assim, aprovado
 	FILE* PtrArq = fopen("Ex22.txt", "r");
 	char nome[100];
 	int n1 = 0, n2 = 0, media = 0, freq = 0, qtdeAulas = 0;
@@ -689,7 +689,7 @@ void Formatador(const char nomeArq[100]) {
 }
 #pragma endregion
 
-#pragma region Pilha padr„o
+#pragma region Pilha padr√£o
 void pilha01() {
 	TpPilha p1, p2, paux;
 	int num = 0;
@@ -746,7 +746,7 @@ void pilha02() {
 		if (num != elemRemove)
 			insere(p1, num);
 	}
-	printf("\nO elemento [%d] foi removido com sucesso, a pilha ent„o ficou assim:\n", elemRemove);
+	printf("\nO elemento [%d] foi removido com sucesso, a pilha ent√£o ficou assim:\n", elemRemove);
 	exibe(p1);
 	_getch();
 
@@ -788,7 +788,7 @@ void pilha03() {
 		}
 	}
 
-	resultado = retira(p1); // O resultado final est· na pilha
+	resultado = retira(p1); // O resultado final est√° na pilha
 	printf("\nResultado: %d\n", resultado);
 
 	_getch();
@@ -1013,7 +1013,7 @@ void PaletesComVetor(const char nomeArq[100]) {
 }
 #pragma endregion
 
-#pragma region Pilha m˙ltipla CASO 1
+#pragma region Pilha m√∫ltipla CASO 1
 void pilhaCASO1Ex1() {
 
 	TpPilhaM pm;
@@ -1037,8 +1037,8 @@ void pilhaCASO1Ex1() {
 		vet[i] = aux;
 	}
 
-	//bubble sort para ordenar o vetor e deixar filÈ pra inserir essa merda corretamente pq n„o pensei em outra forma
-	//28 do 09 de 2023+1, ‡s 03:45, conclui essa merda tirando a ideia do bubble sort da alma, meu deus
+	//bubble sort para ordenar o vetor e deixar fil√© pra inserir essa merda corretamente pq n√£o pensei em outra forma
+	//28 do 09 de 2023+1, √†s 03:45, conclui essa merda tirando a ideia do bubble sort da alma, meu deus
 	for (int i = 0; i < PMA - 1; i++) {
 		for (int j = 0; j < PMA - 1; j++) {
 			if (vet[j] > vet[j + 1]) {
@@ -1246,7 +1246,7 @@ void pilhaCaso1Ex7() {
 }
 #pragma endregion
 
-#pragma region Pilha m˙ltipla CASO 2
+#pragma region Pilha m√∫ltipla CASO 2
 //ajustar o maxpilha caso for testar o ex 1 de PM caso 2, por que alterei o maxpilha de 10 para 100 por causa do ex 9.
 void pilhaCaso2Ex1() {
 	TpPilhaM2 pm;
@@ -1872,7 +1872,7 @@ void ExCaixasBanco() {
 			}
 		}
 		else {
-			printf("\nFila cheia. Pessoa n„o pode ser atendida.");
+			printf("\nFila cheia. Pessoa n√£o pode ser atendida.");
 		}
 
 		if (numTarefas == 1) dep++;
@@ -2150,95 +2150,67 @@ void VetorOrdenadoFila() {
 #pragma endregion
 
 #pragma region Fila com prioridade
-void RemanejarParaPilha(TpFilaCirc fc, TpPilhaBrinquedo p);
-void ordenarBrinquedo(TpBrinquedo brinquedo[], int n);
-void Ex1A(const char nomeArq[100]);
-void Ex1A(const char nomeArq[100]) {
+int comparaBrinquedos(TpBrinquedo a, TpBrinquedo b) {
+	int cmpCep = strcmp(a.cep, b.cep);
+	if (cmpCep != 0) {
+		return cmpCep;  
+	}
+	else {
+		return a.numCasa - b.numCasa;  
+	}
+}
+void insereOrdenado(TpPilhaBrinquedo& P, TpBrinquedo b) {
+	TpPilhaBrinquedo temp;
+	inicializaB(temp);
 
+	
+	while (!vaziaB(P.topo) && comparaBrinquedos(elemTopoB(P), b) > 0) {
+		insereB(temp, retiraB(P));
+	}
+	insereB(P, b);
+
+	while (!vaziaB(temp.topo)) {
+		insereB(P, retiraB(temp));
+	}
+}
+void ordenarBrinquedos(TpFilaCirc& fc, TpPilhaBrinquedo& p) {
+	while (!vaziaFC(fc.cont)) {
+		// Retirar brinquedo da fila circular
+		TpBrinquedo b = retirarBrinqFC(fc);
+
+		// Inserir o brinquedo na pilha de forma ordenada
+		insereOrdenado(p, b);
+	}
+}
+void Ex1A(const char nomeArq[100]) {
 	FILE* PtrArq = fopen(nomeArq, "r");
 	TpBrinquedo b;
 	TpFilaCirc fc;
 	TpPilhaBrinquedo p;
 	inicializaB(p);
-	char ceps[8];
-	int numCasas, numBrinqs;
 	inicializarFC(fc);
-	if (PtrArq == NULL)
-		printf("\nErro com o arquivo");
-	else {
 
+	if (PtrArq == NULL) {
+		printf("\nErro com o arquivo");
+	}
+	else {
+		
 		fscanf(PtrArq, "%[^;];%d;%d", &b.cep, &b.numCasa, &b.numBrinq);
 		while (!feof(PtrArq)) {
-
+			
 			inserirBrinqFC(fc, b);
 			fscanf(PtrArq, "%[^;];%d;%d", &b.cep, &b.numCasa, &b.numBrinq);
 		}
-
 		fclose(PtrArq);
-
 	}
-	exibeFCBrinquedo(fc);
-	printf("\n------------FILA---------------------\n\n\n\n");
-	RemanejarParaPilha(fc, p);
 
+	ordenarBrinquedos(fc, p);
+
+	
+	exibeBrinquedosOrdenados(p);
 
 	_getch();
-
 }
-
-
-void ordenarBrinquedo(TpBrinquedo brinquedo[], int n) {
-	for (int i = 0; i < n - 1; i++) {
-		for (int j = 0; j < n - i - 1; j++) {
-			if (strcmp(brinquedo[j].cep, brinquedo[j + 1].cep) > 0 ||
-				(strcmp(brinquedo[j].cep, brinquedo[j + 1].cep) == 0 &&
-					brinquedo[j].numCasa > brinquedo[j + 1].numCasa)) {
-
-				// Troca os brinquedos
-				TpBrinquedo temp = brinquedo[j];
-				brinquedo[j] = brinquedo[j + 1];
-				brinquedo[j + 1] = temp;
-			}
-		}
-	}
-}
-
-
-
-
-
-void RemanejarParaPilha(TpFilaCirc fc, TpPilhaBrinquedo p) {
-	TpBrinquedo brinquedo[MAXFILAFC];
-	int n = 0; // Contador de brinquedos
-
-
-	while (!vaziaFC(fc.cont)) {
-		brinquedo[n] = retirarBrinqFC(fc);
-		printf("%s, %d, %d\n", brinquedo[n].cep, brinquedo[n].numCasa, brinquedo[n].numBrinq); 
-		
-		n++;
-	}
-
-	ordenarBrinquedo(brinquedo, n);
-
-	printf("Depois da ord \n\n");
-	for (int i = 0; i < n; i++) {
-		printf("%s, %d, %d\n", brinquedo[i].cep, brinquedo[i].numCasa, brinquedo[i].numBrinq); 
-		insereBrinquedo(p, brinquedo[i]); 
-	}
-	system("cls");
-	exibeBrinquedo(p);
-	system("cls"); 
-	exibeBrinquedo(p); 
-}
-
-
-
-
-
-
-
-
 #pragma endregion
 
 char Menu(void)
@@ -2260,7 +2232,7 @@ char Menu(void)
 	printf("\n[J] Ex10 - Arquivo texto");
 	printf("\n[K] Ex11 - Arquivo texto");
 	printf("\n[L] Ex12 - Arquivo texto");
-	printf("\n[M] Ex13 - Arquivo texto");//bagulho merda, sou quenga de string, n„o sei trabalhar direito como isso nao, sÛ no csharp msm
+	printf("\n[M] Ex13 - Arquivo texto");//bagulho merda, sou quenga de string, n√£o sei trabalhar direito como isso nao, s√≥ no csharp msm
 	printf("\n[N] Ex14 - Arquivo texto");
 	printf("\n[O] Ex15 - Arquivo texto");
 	printf("\n[P] Ex16 - Arquivo texto");
@@ -2277,7 +2249,7 @@ char Menu(void)
 	printf("\n[Z] Ex7 - Pilha com char");
 	printf("\n[0] Ex9 - Pilha com char");
 	printf("\n[1] Exercicio paletes - Prova ED1");
-	printf("\n[2] Exercicio paletes - Prova ED1 (com vetor e ordenaÁ„o de bolha)");
+	printf("\n[2] Exercicio paletes - Prova ED1 (com vetor e ordena√ß√£o de bolha)");
 	printf("\n\n***** PILHA CASO 1 *****");
 	printf("\n[3] Ex1 - Pilha com char - CASO 1");
 	printf("\n[4] Ex2 - Pilha com char - CASO 1");

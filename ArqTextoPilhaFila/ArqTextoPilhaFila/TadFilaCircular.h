@@ -2,9 +2,9 @@
 
 // Definição da estrutura TpBrinquedo
 struct TpBrinquedo {
-    char cep[9];      // CEP da casa
-    int numCasa;      // Número da casa
-    int numBrinq;     // Número do brinquedo
+    char cep[9];      
+    int numCasa;      
+    int numBrinq;     
 };
 
 // Definição da estrutura TpFilaCirc

@@ -5,7 +5,4 @@ C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqText
 C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(923,22): warning C4101: 'paux': variável local não referenciada
 C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(972,14): warning C4101: 'p2': variável local não referenciada
 C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(1069,29): warning C4101: 'vet': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(2164,16): warning C4101: 'numBrinqs': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(2163,7): warning C4101: 'ceps': variável local não referenciada
-C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\ArqTextoPilhaFila\ArqTextoPilhaFila.cpp(2164,6): warning C4101: 'numCasas': variável local não referenciada
   ArqTextoPilhaFila.vcxproj -> C:\Users\Arthur\Documents\GitHub\ED1\ArqTextoPilhaFila\x64\Debug\ArqTextoPilhaFila.exe
