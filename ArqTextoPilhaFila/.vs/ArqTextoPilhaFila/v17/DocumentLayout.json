@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\TADFILACIRCULAR.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\TADFILACIRCULAR.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\TADPILHABRINQUEDO.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\TADPILHABRINQUEDO.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\TADPILHA.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\TADPILHA.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|C:\\USERS\\ARTHUR\\DOCUMENTS\\GITHUB\\ED1\\ARQTEXTOPILHAFILA\\ARQTEXTOPILHAFILA\\TADFILACIRCULAR.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{568B34CB-86DB-423B-8423-37F283ED84AD}|ArqTextoPilhaFila\\ArqTextoPilhaFila.vcxproj|solutionrelative:ARQTEXTOPILHAFILA\\TADFILACIRCULAR.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,14 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TADPilha.h",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilha.h",
+              "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TADPilha.h",
+              "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilha.h",
+              "RelativeToolTip": "ArqTextoPilhaFila\\TADPilha.h",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACYAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-02T00:19:10.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TadFilaCircular.h",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TadFilaCircular.h",
+              "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TadFilaCircular.h",
+              "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TadFilaCircular.h",
+              "RelativeToolTip": "ArqTextoPilhaFila\\TadFilaCircular.h",
+              "ViewState": "AQIAACUAAAAAAAAAAAAgwDcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-02T00:13:03.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TADPilhaBrinquedo.h",
               "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilhaBrinquedo.h",
               "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TADPilhaBrinquedo.h",
               "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TADPilhaBrinquedo.h",
               "RelativeToolTip": "ArqTextoPilhaFila\\TADPilhaBrinquedo.h",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAwE8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T21:22:10.824Z",
+              "WhenOpened": "2024-10-01T23:23:01.158Z",
               "EditorCaption": ""
             },
             {
@@ -49,22 +79,9 @@
               "RelativeDocumentMoniker": "ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
               "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
               "RelativeToolTip": "ArqTextoPilhaFila\\ArqTextoPilhaFila.cpp",
-              "ViewState": "AQIAAKgIAAAAAAAAAAAjwK8IAAAeAAAA",
+              "ViewState": "AQIAAJEIAAAAAAAAAAApwKcIAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-28T02:28:14.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TadFilaCircular.h",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TadFilaCircular.h",
-              "RelativeDocumentMoniker": "ArqTextoPilhaFila\\TadFilaCircular.h",
-              "ToolTip": "C:\\Users\\Arthur\\Documents\\GitHub\\ED1\\ArqTextoPilhaFila\\ArqTextoPilhaFila\\TadFilaCircular.h",
-              "RelativeToolTip": "ArqTextoPilhaFila\\TadFilaCircular.h",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAjwDYAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T23:06:01.571Z",
               "EditorCaption": ""
             }
           ]
